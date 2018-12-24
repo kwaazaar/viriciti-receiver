@@ -1,0 +1,56 @@
+PUT vehiclestat
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "fleet": {
+          "type": "keyword"
+        },
+        "vehicle": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date",
+		  "format": "strict_date_optional_time||epoch_millis"
+        },
+        "remainingRange": {
+          "type": "float"
+        },
+        "powerConsumption": {
+          "type": "float"
+        },
+        "stateOfCharge": {
+          "type": "float"
+        },
+        "totalCurrent": {
+          "type": "float"
+        },
+        "totalVoltage": {
+          "type": "float"
+        },
+        "tachoSpeed": {
+          "type": "float"
+        },
+        "gpsSpeed": {
+          "type": "float"
+        },
+        "gpsPos": {
+          "type": "geo_point"
+        },
+        "gpsAltitude": {
+          "type": "float"
+        },
+        "gpsSatCount": {
+          "type": "byte"
+        },
+        "engineTorque": {
+          "type": "float"
+        },
+        "engineRpm": {
+          "type": "float"
+        }
+      }
+    }
+  }
+}
+
