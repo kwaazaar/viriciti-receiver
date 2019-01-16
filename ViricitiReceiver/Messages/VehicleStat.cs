@@ -16,10 +16,20 @@ namespace ViricitiReceiver.Messages
 
         [JsonProperty(PropertyName = "remainingRange", NullValueHandling = NullValueHandling.Ignore)]
         public float? RemainingRange { get; set; }
+        [JsonProperty(PropertyName = "estRangeInService", NullValueHandling = NullValueHandling.Ignore)]
+        public float? EstRangeInService { get; set; }
         [JsonProperty(PropertyName = "powerConsumption", NullValueHandling = NullValueHandling.Ignore)]
         public float? PowerConsumption { get; set; }
         [JsonProperty(PropertyName = "stateOfCharge", NullValueHandling = NullValueHandling.Ignore)]
         public float? StateOfCharge { get; set; }
+        [JsonProperty(PropertyName = "batSoC", NullValueHandling = NullValueHandling.Ignore)]
+        public float? BatSoc { get; set; }
+        [JsonProperty(PropertyName = "oppChargeSoC", NullValueHandling = NullValueHandling.Ignore)]
+        public float? OpChargeSoc { get; set; }
+        [JsonProperty(PropertyName = "filteredSoC", NullValueHandling = NullValueHandling.Ignore)]
+        public float? FilteredSoc { get; set; }
+
+
         [JsonProperty(PropertyName = "totalCurrent", NullValueHandling = NullValueHandling.Ignore)]
         public float? TotalCurrent { get; set; }
         [JsonProperty(PropertyName = "totalVoltage", NullValueHandling = NullValueHandling.Ignore)]

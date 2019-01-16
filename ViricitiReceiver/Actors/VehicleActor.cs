@@ -44,6 +44,7 @@ namespace ViricitiReceiver.Actors
 
             WhenDiff(source.EngineRpm, _vehicleStat.EngineRpm, ref updated, (s) => _vehicleStat.EngineRpm = s);
             WhenDiff(source.EngineTorque, _vehicleStat.EngineTorque, ref updated, (s) => _vehicleStat.EngineTorque = s);
+            WhenDiff(source.EstRangeInService, _vehicleStat.EstRangeInService, ref updated, (s) => _vehicleStat.EstRangeInService = s);
             WhenDiff(source.GpsAltitude, _vehicleStat.GpsAltitude, ref updated, (s) => _vehicleStat.GpsAltitude = s);
             WhenDiff(source.GpsPos, _vehicleStat.GpsPos, ref updated, (s) => _vehicleStat.GpsPos = s);
             WhenDiff(source.GpsSatCount, _vehicleStat.GpsSatCount, ref updated, (s) => _vehicleStat.GpsSatCount = s);
@@ -51,6 +52,9 @@ namespace ViricitiReceiver.Actors
             WhenDiff(source.PowerConsumption, _vehicleStat.PowerConsumption, ref updated, (s) => _vehicleStat.PowerConsumption = s);
             WhenDiff(source.RemainingRange, _vehicleStat.RemainingRange, ref updated, (s) => _vehicleStat.RemainingRange = s);
             WhenDiff(source.StateOfCharge, _vehicleStat.StateOfCharge, ref updated, (s) => _vehicleStat.StateOfCharge = s);
+            WhenDiff(source.BatSoc, _vehicleStat.BatSoc, ref updated, (s) => _vehicleStat.BatSoc = s);
+            WhenDiff(source.OpChargeSoc, _vehicleStat.OpChargeSoc, ref updated, (s) => _vehicleStat.OpChargeSoc = s);
+            WhenDiff(source.FilteredSoc, _vehicleStat.FilteredSoc, ref updated, (s) => _vehicleStat.FilteredSoc = s);
             WhenDiff(source.TachoSpeed, _vehicleStat.TachoSpeed, ref updated, (s) => _vehicleStat.TachoSpeed = s);
             WhenDiff(source.TotalCurrent, _vehicleStat.TotalCurrent, ref updated, (s) => _vehicleStat.TotalCurrent = s);
             WhenDiff(source.TotalVoltage, _vehicleStat.TotalVoltage, ref updated, (s) => _vehicleStat.TotalVoltage = s);

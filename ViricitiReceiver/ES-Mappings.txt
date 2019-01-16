@@ -16,10 +16,22 @@ PUT vehiclestat
         "remainingRange": {
           "type": "float"
         },
+		"estRangeInService": {
+		  "type": "float"
+		},
         "powerConsumption": {
           "type": "float"
         },
         "stateOfCharge": {
+          "type": "float"
+        },
+        "batSoC": {
+          "type": "float"
+        },
+        "oppChargeSoC": {
+          "type": "float"
+        },
+        "filteredSoC": {
           "type": "float"
         },
         "totalCurrent": {

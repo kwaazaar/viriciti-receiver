@@ -8,9 +8,12 @@ namespace ViricitiReceiver.Actors
 {
     public class MessageProcessorActor: ReceiveActor
     {
+        static readonly List<string> skippedProperties = new List<string>();
         static readonly Dictionary<string, Action<JToken, VehicleStat>> whitelist = new Dictionary<string, Action<JToken, VehicleStat>>
             {
                 { "dashboard.RemainingRange", (token, vs) => vs.RemainingRange = token.Value<float>() },
+                { "analyses.estimated_range_inservice", (token, vs) => vs.EstRangeInService = token.Value<float>() },
+
                 { "dashboard.TachographVehicleSpeed", (token, vs) => vs.TachoSpeed = token.Value<float>() },
                 { "dashboard.PowerConsumption", (token, vs) => vs.PowerConsumption = token.Value<float>() },
                 { "ivh.gps_speed", (token, vs) => vs.GpsSpeed = token.Value<float>() },
@@ -20,6 +23,9 @@ namespace ViricitiReceiver.Actors
                 { "engine.MotorTorque", (token, vs) => vs.EngineTorque = token.Value<float>() },
                 { "engine.MotorSpeed", (token, vs) => vs.EngineRpm = token.Value<float>() },
                 { "battery.StateOfCharge", (token, vs) => vs.StateOfCharge = token.Value<float>() },
+                { "dashboard.bat_soc", (token, vs) => vs.BatSoc = token.Value<float>() },
+                { "oppcharge.state_ofcharge", (token, vs) => vs.OpChargeSoc = token.Value<float>() },
+                { "analyses.soc_filtered", (token, vs) => vs.FilteredSoc = token.Value<float>() },
                 { "battery.TotalCurrent", (token, vs) => vs.TotalCurrent = token.Value<float>() },
                 { "battery.TotalVoltage", (token, vs) => vs.TotalVoltage = token.Value<float>() },
             };
@@ -52,6 +58,11 @@ namespace ViricitiReceiver.Actors
                 mapper(jObj["value"], vs);
 
                 _vehicleStatProcessorActor.Tell(new VehicleStatMessage(vs));
+            }
+            else if (!skippedProperties.Contains(property))
+            {
+                skippedProperties.Add(property);
+                Console.WriteLine("Non-whitelisted property found: " + property);
             }
 
             return true;
